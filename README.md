@@ -9,7 +9,7 @@ Python
 
 ## Author:
 
-Alice Nocquet
+LESSEGUINCE Laurent
 
 
 ## Installing the environment and launching the program:
@@ -23,3 +23,4 @@ $ .\venv\Scripts\activate
 $ pip install -r requirements.txt
 $ python main.py
 ```bash
+
