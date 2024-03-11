@@ -1,5 +1,6 @@
 from models.joueur import Joueur
 
+
 class GestionJoueurs:
     def __init__(self):
         self.joueurs = []

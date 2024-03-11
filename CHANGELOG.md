@@ -29,7 +29,7 @@ at each mentorship session.
 - [ ]
 
 #### Nice to Have (Ce qui serait bien de faire - mais qu'on ne fera pas forcément)
-- [ ]
+- [ ] Translate code et comments in english
 - [ ]
 - [ ]
 - [ ]

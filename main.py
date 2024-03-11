@@ -14,7 +14,16 @@ while True:
         gestion_joueurs.ajouter_joueur("John", "Doe", "01/01/2000", "AB12345")
         print("Joueur ajouté avec succès !")
     elif choix == "2":
-        gestion_tournois.ajouter_tournoi("Tournoi 1", "Paris", "01/01/2024", "01/02/2024", 4, 1, [], "Description du tournoi")
+        gestion_tournois.ajouter_tournoi(
+            "Tournoi 1",
+            "Paris",
+            "01/01/2024",
+            "01/02/2024",
+            4,
+            1,
+            [],
+            "Description du tournoi",
+        )
         print("Tournoi ajouté avec succès !")
     elif choix == "3":
         print("Au revoir !")
