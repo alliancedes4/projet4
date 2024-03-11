@@ -14,6 +14,24 @@ class Joueur:
         self.date_naissance = date_naissance
         self.identifiant = identifiant
 
+    def save(self) :
+        """Sauvegarde le joueur dans la base de données."""
+        
+        ########################
+        # Write some code here
+        ########################
+        
+        pass
+
+    def load(self) :
+        """Charge le joueur depuis la base de données."""
+        
+        ########################
+        # Write some code here
+        ########################
+        
+        pass
+
     def __repr__(self) -> str:
 
         return f"Joueur({self.__dict__})"
