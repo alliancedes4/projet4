@@ -21,3 +21,4 @@ while True:
         break
     else:
         print("Choix invalide. Veuillez réessayer.")
+ 
