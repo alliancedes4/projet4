@@ -21,6 +21,14 @@ at each mentorship session.
 
 
 ### Todo
+
+#### Must Have (Ce qu'il faut faire)
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+
+#### Nice to Have (Ce qui serait bien de faire - mais qu'on ne fera pas forcément)
 - [ ]
 - [ ]
 - [ ]
