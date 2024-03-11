@@ -18,6 +18,7 @@ at each mentorship session.
 ### Updated
 - restruct folder creating a chess/ main package
 - updated the readme with the new structure
+- Add placeholders methods in the Jouer class
 
 
 ### Todo
@@ -32,5 +33,4 @@ at each mentorship session.
 #### Nice to Have (Ce qui serait bien de faire - mais qu'on ne fera pas forcément)
 - [ ] Translate code et comments in english
 - [ ] Write tests for the Player class
-- [ ]
-- [ ]
+
