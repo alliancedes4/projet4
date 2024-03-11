@@ -1,17 +1,12 @@
 # projet4 - CHESS GAME
 
-
-
 ## About
 
 This program allows the management of chess tournaments in offline mode.
 
-
-
 ## Pre-requisites
 
 ```Python3.8+```, ```python-pip``` and  ```python-venv``` installed on your computer.
-
 
 ## Set up
 
@@ -42,6 +37,3 @@ python main.py
 ## Author
 
 LESSEGUINCE Laurent
-
-
-
