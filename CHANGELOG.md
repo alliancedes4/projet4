@@ -23,13 +23,14 @@ at each mentorship session.
 ### Todo
 
 #### Must Have (Ce qu'il faut faire)
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- [ ] Be able to store a player in json format using tinydb package
+    - [ ] Main work on Joueur class
+    - [ ] Learn how to use tinydb
+    - [ ] Implement tiny db 
+    - [ ] Store a player in json format with tinydb
 
 #### Nice to Have (Ce qui serait bien de faire - mais qu'on ne fera pas forcément)
 - [ ] Translate code et comments in english
-- [ ]
+- [ ] Write tests for the Player class
 - [ ]
 - [ ]
