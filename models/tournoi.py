@@ -8,3 +8,7 @@ class Tournoi:
         self.num_tour_actuel = num_tour_actuel
         self.joueurs = joueurs
         self.description = description
+
+# ajouter_tournoi
+# ajouter un joueur a un tournoi
+     

@@ -4,3 +4,5 @@ class Joueur:
         self.prenom = prenom
         self.date_naissance = date_naissance
         self.identifiant = identifiant
+
+# ajouter_joueur
