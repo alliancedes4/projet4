@@ -1,4 +1,4 @@
-tinydb 
-pytest
-black
-Ipython
+tinydb  # petit utilitaire pour stocker des données (ORM)
+pytest  # lancer des fichiers pour les 'tests'
+black   # formatter notre code automatiquement
+Ipython # shell interactif 
