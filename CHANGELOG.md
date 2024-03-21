@@ -1,6 +1,5 @@
 # Changelog 
 
-
 Files in this directory are used to track the changes made to the project
 at each mentorship session.
 
@@ -14,8 +13,6 @@ at each mentorship session.
 - .gitignore file
 - created .utils to store various utils (*requirements.freeze*)
 - Added a tests folder to store the tests (*for later*)
-
-
 
 ### Updated 
 - Due to merge problem re write manually all the code
