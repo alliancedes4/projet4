@@ -7,12 +7,10 @@ class Joueur:
 
     def save(self) :
             """Sauvegarde le joueur dans la base de données."""
-
-            ########################
-            # Write some code here
-            ########################
-
-            pass
+            from tinydb import TinyDB, Query
+            db = TinyDB('db.json')
+            db.insert( self.__dict__)
+            db.close()
 
     def load(self) :
         """Charge le joueur depuis la base de données."""
