@@ -1,6 +1,6 @@
-from views.menu import Menu
-from gestion.gestion_joueurs import GestionJoueurs
-from gestion.gestion_tournois import GestionTournois
+from chess.controlers.gestion_joueurs import GestionJoueurs
+from chess.controlers.gestion_tournois import GestionTournois
+from chess.views.menu import Menu
 
 menu = Menu()
 gestion_joueurs = GestionJoueurs()
@@ -21,4 +21,3 @@ while True:
         break
     else:
         print("Choix invalide. Veuillez réessayer.")
- 
