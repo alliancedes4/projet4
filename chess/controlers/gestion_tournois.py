@@ -1,4 +1,4 @@
-from models.tournoi import Tournoi
+from ..models.tournoi import Tournoi
 
 class GestionTournois:
     def __init__(self):

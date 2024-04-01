@@ -1,4 +1,4 @@
-from models.joueur import Joueur
+from ..models.joueur import Joueur
 
 class GestionJoueurs:
     def __init__(self):
