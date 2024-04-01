@@ -14,12 +14,19 @@ class Joueur:
 
     def load(self) :
         """Charge le joueur depuis la base de données."""
-
-        ########################
-        # Write some code here
-        ########################
-
-        pass
+        from tinydb import TinyDB, Query
+        db = TinyDB('db.json')
+        Joueur = Query()
+        joueur_cherche = db.get(Joueur.identifiant == self.identifiant)
+        db.close()
+        if joueur_cherche:
+            self.nom = joueur_cherche['nom']
+            self.prenom = joueur_cherche['prenom']
+            self.date_naissance = joueur_cherche['date_naissance']
+            self.identifiant = joueur_cherche['identifiant']
+            return True
+        else:
+            return False
 
     def __repr__(self) -> str:
 
