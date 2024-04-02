@@ -3,6 +3,26 @@
 Files in this directory are used to track the changes made to the project
 at each mentorship session.
 
+## 2024-03-27 (done 03-02) Mentorship Session
+
+### Added 
+
+- Test functions for player 
+- Add secrest to have random id name ect etc 
+- add a place holder for data storage 
+
+### Updated
+
+- moove imports
+- rename file player.json
+
+### Todo
+
+#### Must have
+
+#### Nice to have
+
+
 ## 2024-03-21 Mentorship Session
 
 ### Added
