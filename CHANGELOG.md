@@ -3,6 +3,37 @@
 Files in this directory are used to track the changes made to the project
 at each mentorship session.
 
+## 2024-03-27 (done 03-02) Mentorship Session
+
+### Added 
+
+- Test functions for player 
+- Add secrest to have random id name ect etc 
+- Add a place holder for data storage 
+- Add place holder in the joueur class
+
+### Updated
+
+- moove imports
+- rename file player.json
+- do not trach data (*.json)
+
+- use db.all() for load functions
+
+
+### Todo
+
+
+#### Must have
+
+- Understand class and static methods
+- fix load
+- write search_by_id
+- is Jouer is OK, write the Tournoi class (same pattern)
+
+#### Nice to have
+
+
 ## 2024-03-21 Mentorship Session
 
 ### Added
