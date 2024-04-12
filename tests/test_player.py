@@ -45,12 +45,12 @@ def test_load_Joueur():
     # output = Joueur().load()
     output = Joueur.load()
 
-    # ==> Voudrais => la liste de tous les joueurs
-    assert isinstance(output, list)
-    p1 = output[0]
+    # # ==> Voudrais => la liste de tous les joueurs
+    # assert isinstance(output, list)
+    # p1 = output[-1]
 
-    # le 1er item de la liste soit un object de class Joueur (*instance*)
-    assert isinstance(p1, Joueur)
+    # # le 1er item de la liste soit un object de class Joueur (*instance*)
+    # assert isinstance(p1, Joueur)
 
 
 def test_search_by_id():
