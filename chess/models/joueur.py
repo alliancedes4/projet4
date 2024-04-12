@@ -4,6 +4,8 @@ Class Player
 
 from tinydb import TinyDB, Query
 
+import secrets
+
 
 class Joueur:
     """ """
@@ -39,7 +41,7 @@ class Joueur:
     @classmethod
     def search_by_id(cls, identifiant):
         """Recherche un joueur par identifiant."""
-        
+
         all_players = cls.load()
 
         # Parcourt la liste des joueurs pour trouver celui avec l'identifiant spécifié
@@ -55,6 +57,36 @@ class Joueur:
 
         # Si aucun joueur avec cet identifiant n'est trouvé, retourne None
         return None
+
+    @classmethod
+    def delete_all(cls):
+        """crash all the players from the database"""
+
+        db = TinyDB("player.json")
+        db.truncate()
+
+    @classmethod
+    def boot(cls):
+        """create 4 falke players in the database"""
+
+        for _ in range(4):
+            sha = secrets.token_hex(2)
+            sha = "test_" + sha
+
+            player = Joueur(
+                nom=sha,
+                prenom=sha,
+                date_naissance="01/01/2000",
+                identifiant=sha,
+            )
+            player.save()
+
+    @classmethod
+    def reboot(cls):
+        """delete all the players from the database and create 4 falke players"""
+
+        cls.delete_all()
+        cls.boot()
 
     def __repr__(self) -> str:
         return f"Joueur({self.__dict__})"
