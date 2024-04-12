@@ -28,43 +28,33 @@ class Joueur:
         db.close()
 
     @classmethod
-    def load(self):
-        """Charge tous les jouers depuis la base de données."""
+    def load(cls):
+        """Charge tous les joueurs depuis la base de données."""
 
         db = TinyDB("player.json")
-        # Joueur = Query()
-        # joueur_cherche = db.get(Joueur.identifiant == self.identifiant)
-        # db.close()
-        # if joueur_cherche:
-        #     self.nom = joueur_cherche["nom"]
-        #     self.prenom = joueur_cherche["prenom"]
-        #     self.date_naissance = joueur_cherche["date_naissance"]
-        #     self.identifiant = joueur_cherche["identifiant"]
-        #     return True
-        # else:
-        #     return False
-
         list_player = db.all()
+        db.close()
         return list_player
 
     @classmethod
-    def search_by_id(self, identifiant):
-        """ """
+    def search_by_id(cls, identifiant):
+        """Recherche un joueur par identifiant."""
+        
+        all_players = cls.load()
 
-        # >>> from tinydb import TinyDB, Query
-        # >>> db = TinyDB('path/to/db.json')
-        # >>> User = Query()
-        # >>> db.insert({'name': 'John', 'age': 22})
-        # >>> db.search(User.name == 'John')
-        # [{'name': 'John', 'age': 22}]
+        # Parcourt la liste des joueurs pour trouver celui avec l'identifiant spécifié
+        for player_data in all_players:
+            if player_data["identifiant"] == identifiant:
+                # Si l'identifiant correspond, crée une instance de Joueur et retourne
+                return cls(
+                    nom=player_data["nom"],
+                    prenom=player_data["prenom"],
+                    date_naissance=player_data["date_naissance"],
+                    identifiant=player_data["identifiant"],
+                )
 
-        #########################################"
-        #   INSERT CODE HERE
-        #   forcement on va utiliser les resultats de la methode précédente
-        #########################################""
-
-        # RETURN AN INSTANCE OF JOUEUR
+        # Si aucun joueur avec cet identifiant n'est trouvé, retourne None
+        return None
 
     def __repr__(self) -> str:
-
         return f"Joueur({self.__dict__})"
