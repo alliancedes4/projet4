@@ -3,6 +3,19 @@
 Files in this directory are used to track the changes made to the project
 at each mentorship session.
 
+
+## 2024-04-03  Mentorship Session
+
+### Added 
+- new methods for reboot db
+- test IPYTHON for all player methods ==> All OK 
+- update tests 
+
+### TODO 
+- Implement same BUT For tournois
+- When all methods for tournois : ==> add new methods : "add_player_to_tournoi" and "change_status" (from created to started, to finished), and "next_round"
+- Deeply think about our Tournois class => what are the attributes, what are the methods, what are the relations with other classes => what logic should be implemented in the class?
+
 ## 2024-03-27 (done 03-02) Mentorship Session
 
 ### Added 
@@ -12,7 +25,7 @@ at each mentorship session.
 - Add a place holder for data storage 
 - Add place holder in the joueur class
 
-### Updated
+### Upated
 
 - moove imports
 - rename file player.json
