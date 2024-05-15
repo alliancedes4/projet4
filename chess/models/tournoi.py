@@ -21,7 +21,7 @@ class Tournoi:
         pass
     def organiser_ronde(self, nom_ronde):
         """Organise une ronde dans le tournoi."""
-        ronde = Ronde(nom_ronde)
+        ronde = ronde(nom_ronde)
         ronde.organiser_matchs(self.joueurs)
 # ajouter_tournoi
 # ajouter un joueur a un tournoi

@@ -1,3 +1,74 @@
+1. **Création du tournoi :
+
+   - Définir les paramètres du tournoi : date, lieu et format (à 4 joueurs).
+   - Ajouter les 4 joueurs participants.
+   - Fermer les inscriptions une fois que les 4 joueurs sont inscrits.
+
+2. **Lancement du tournoi :
+
+   - Mettre en place les rondes selon le format du tournoi à 4 joueurs.
+   - Déterminer le nombre de matchs par ronde.
+   - Définir le temps alloué pour chaque ronde.
+   - Assurer un appariement équilibré entre les joueurs.
+   - Gérer le temps de jeu pour chaque partie.
+   - Établir et mettre à jour le classement des joueurs au fur et à mesure du déroulement du tournoi.
+
+3. **Définition des structures de données :**
+   - Créer des structures de données pour stocker les informations sur le tournoi, les joueurs, les rondes, les matchs, et le classement.
+
+4. **Gestion des inscriptions :**
+   - Développer une fonctionnalité permettant d'ajouter des joueurs au tournoi et de fermer les inscriptions une fois que le nombre requis de joueurs est atteint.
+
+5. **Planification des rondes :**
+   - Élaborer un algorithme pour planifier les rondes du tournoi en fonction du nombre de joueurs et du format choisi.
+
+6. **Appariement des joueurs :**
+   - Implémenter un système d'appariement pour garantir des matchs équilibrés à chaque ronde.
+
+7. **Gestion du temps de jeu :**
+   - Intégrer un mécanisme pour suivre le temps de jeu alloué à chaque partie et garantir le respect des délais.
+
+8. **Calcul du classement :**
+   - Écrire des fonctions pour calculer et mettre à jour le classement des joueurs en fonction de leurs performances dans le tournoi.
+
+9. **Affichage des résultats :**
+   - Prévoir une fonctionnalité pour afficher les résultats des rondes et le classement actuel aux participants et aux organisateurs.
+
+
+*3. **Gestion des structures de données :
+GPT DEFINITION :La définition des structures de données consiste à déterminer comment les informations seront organisées et stockées dans votre programme. Pour un tournoi d'échecs, cela implique de décider comment représenter les différents éléments du tournoi, tels que les joueurs, les rondes, les matchs, et le classement.
+
+1. **Joueur :**
+   - Nom du joueur
+   - Classement Elo
+   - Autres informations pertinentes sur le joueur
+
+2. **Ronde :**
+   - Numéro de ronde
+   - Liste des matchs prévus pour cette ronde
+
+3. **Match :**
+   - Joueurs impliqués dans le match
+   - Résultat du match (victoire, défaite, match nul)
+   - Temps de jeu
+
+4. **Classement :**
+   - Liste des joueurs classés par leur performance dans le tournoi
+   - Points accumulés
+   - Autres critères de classement éventuels
+
+En définissant ces structures de données, vous créez un cadre pour organiser et manipuler les informations nécessaires à la gestion du tournoi d'échecs dans votre programme Python.
+
+
+
+
+
+
+
+
+
+
+
 update crée la metode update voir video. 
 note txt a crée dans vscode pour le projet
 crée la classe tournoi et la rond
@@ -6,6 +77,31 @@ quel sont les grande etape d'un tournoi(systeme information) oop
 fini la class player 
 liste des tout le monde joue contre tout le monde.
 exemple foot
+
+models/joueurs&tournois& ronde
+métodes
+read 
+search_by_id
+delete_all
+reboot create no ronde
+creation faut tournoi et faut joueurs mais pas de fausse ronde
+class ronde
+class tournoi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 "status"
 class Programme:
