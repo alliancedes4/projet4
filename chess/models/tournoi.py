@@ -1,8 +1,6 @@
 class Tournoi:
+    """Classe représentant un tournoi."""
 
-    """Classe représentant un tournoi d'échecs."""
-
-    
     def __init__(self, nom, lieu, date_debut, date_fin, nb_tours=4, num_tour_actuel=1, joueurs=[], description=""):
         self.nom = nom
         self.lieu = lieu
@@ -13,6 +11,18 @@ class Tournoi:
         self.joueurs = joueurs
         self.description = description
 
+    def ajouter_joueur(self, joueur):
+        """Ajoute un joueur au tournoi."""
+        self.joueurs.append(joueur)
+
+    def organiser_tournoi(self):
+        """Organise le tournoi en rondes et matchs."""
+        # Logique d'organisation du tournoi
+        pass
+    def organiser_ronde(self, nom_ronde):
+        """Organise une ronde dans le tournoi."""
+        ronde = Ronde(nom_ronde)
+        ronde.organiser_matchs(self.joueurs)
 # ajouter_tournoi
 # ajouter un joueur a un tournoi
      

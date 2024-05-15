@@ -1,7 +1,6 @@
 # models/joueur.py
 
-from tinydb import TinyDB, Query
-import secrets
+from tinydb import TinyDB
 
 class Joueur:
     """Classe représentant un joueur."""
@@ -14,14 +13,19 @@ class Joueur:
 
     def save(self):
         """Sauvegarde le joueur dans la base de données."""
-        db = TinyDB("player.json")
+        db = TinyDB("data_joueurs.json")
         db.insert(self.__dict__)
         db.close()
+
+    def update(self, **kwargs):
+        """Met à jour les informations du joueur."""
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     @classmethod
     def load(cls):
         """Charge tous les joueurs depuis la base de données."""
-        db = TinyDB("player.json")
+        db = TinyDB("data_joueurs.json")
         list_player = db.all()
         db.close()
         return list_player
@@ -43,24 +47,22 @@ class Joueur:
     @classmethod
     def delete_all(cls):
         """Supprime tous les joueurs de la base de données."""
-        db = TinyDB("player.json")
+        db = TinyDB("data_joueurs.json")
         db.truncate()
         db.close()
 
     @classmethod
     def boot(cls):
         """Crée 4 joueurs fictifs dans la base de données."""
-        db = TinyDB("player.json")
-        for _ in range(4):
-            sha = secrets.token_hex(2)
-            sha = "test_" + sha
-            player = cls(
-                nom=sha,
-                prenom=sha,
-                date_naissance="01/01/2000",
-                identifiant=sha,
+        db = TinyDB("data_joueurs.json")
+        for i in range(1, 5):
+            joueur = cls(
+                nom=f"Nom{i}",
+                prenom=f"Prénom{i}",
+                date_naissance="2000-01-01",
+                identifiant=f"identifiant{i}",
             )
-            player.save()
+            joueur.save()
         db.close()
 
     def __repr__(self) -> str:

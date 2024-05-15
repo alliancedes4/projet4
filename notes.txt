@@ -1,0 +1,52 @@
+update crée la metode update voir video. 
+note txt a crée dans vscode pour le projet
+crée la classe tournoi et la rond
+implémenté dans la class rond ne ppas crée de fausse rond 
+quel sont les grande etape d'un tournoi(systeme information) oop 
+fini la class player 
+liste des tout le monde joue contre tout le monde.
+exemple foot
+
+"status"
+class Programme:
+    def __init__(self):
+        self.statut = "crée"
+
+    def passer_ready(self):
+        if self.statut == "crée":
+            self.statut = "ready"
+        else:
+            print("Le programme ne peut pas passer à l'état 'ready' depuis son statut actuel.")
+
+    def passer_live(self):
+        if self.statut == "ready":
+            self.statut = "live"
+        else:
+            print("Le programme ne peut pas passer à l'état 'live' depuis son statut actuel.")
+
+    def passer_finish(self):
+        if self.statut == "live":
+            self.statut = "finish"
+        else:
+            print("Le programme ne peut pas passer à l'état 'finish' depuis son statut actuel.")
+
+    def afficher_statut(self):
+        print("Statut actuel du programme :", self.statut)
+
+
+# Exemple d'utilisation :
+programme = Programme()
+programme.afficher_statut()  # Affiche "Statut actuel du programme : crée"
+
+programme.passer_ready()
+programme.afficher_statut()  # Affiche "Statut actuel du programme : ready"
+
+programme.passer_live()
+programme.afficher_statut()  # Affiche "Statut actuel du programme : live"
+
+programme.passer_finish()
+programme.afficher_statut()  # Affiche "Statut actuel du programme : finish"
+
+# Tentative de changement de statut invalide :
+programme.passer_ready()  # Affiche "Le programme ne peut pas passer à l'état 'ready' depuis son statut actuel."
+

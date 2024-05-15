@@ -1,4 +1,4 @@
-# controllers/gestion_joueurs.py
+# controlers/gestion_joueurs.py
 
 from ..models.joueur import Joueur
 
@@ -15,10 +15,10 @@ class GestionJoueurs:
 
     @classmethod
     def boot_players(cls):
-        """Crée 4 joueurs fictifs dans la base de données."""
-        Joueur.boot()
+       """Crée 4 joueurs fictifs dans la base de données."""
+       Joueur.boot()
 
     @classmethod
     def reboot_players(cls):
-        """Supprime tous les joueurs de la base de données et crée 4 joueurs fictifs."""
-        Joueur.reboot()
+      """Supprime tous les joueurs de la base de données et crée 4 joueurs fictifs."""
+      Joueur.reboot()
