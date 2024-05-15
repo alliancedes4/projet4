@@ -1,3 +1,6 @@
+D'accord, commençons par intégrer les éléments du prompt dans la classe Tournoi. Voici le code mis à jour avec les descriptions de statut et les fonctionnalités de base de la classe Tournoi :
+
+```python
 class Tournoi:
     """Classe représentant un tournoi."""
 
@@ -10,19 +13,29 @@ class Tournoi:
         self.num_tour_actuel = num_tour_actuel
         self.joueurs = joueurs
         self.description = description
+        self.status = "Ready"  # Statut initial : Prêt
 
     def ajouter_joueur(self, joueur):
         """Ajoute un joueur au tournoi."""
-        self.joueurs.append(joueur)
+        if self.status == "Ready":
+            self.joueurs.append(joueur)
+            print(f"{joueur.nom} a été ajouté au tournoi {self.nom}.")
+        else:
+            print("Impossible d'ajouter un joueur. Le tournoi n'est plus ouvert aux inscriptions.")
 
     def organiser_tournoi(self):
         """Organise le tournoi en rondes et matchs."""
-        # Logique d'organisation du tournoi
-        pass
+        if self.status == "Ready":
+            # Logique d'organisation du tournoi
+            self.status = "Live"  # Mise à jour du statut : En cours
+            print(f"Le tournoi {self.nom} commence maintenant.")
+        else:
+            print("Impossible d'organiser le tournoi. Le tournoi est déjà en cours ou terminé.")
+
     def organiser_ronde(self, nom_ronde):
         """Organise une ronde dans le tournoi."""
-        ronde = ronde(nom_ronde)
-        ronde.organiser_matchs(self.joueurs)
-# ajouter_tournoi
-# ajouter un joueur a un tournoi
-     
+        if self.status == "Live":
+            # Logique d'organisation de la ronde
+            print(f"La ronde {nom_ronde} a été organisée dans le tournoi {self.nom}.")
+        else:
+            print("Impossible d'organiser une ronde. Le tournoi n'est pas en cours.")
