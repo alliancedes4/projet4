@@ -3,6 +3,27 @@
 Files in this directory are used to track the changes made to the project
 at each mentorship session.
 
+## 2024-05-17 Mentorship Session
+
+### Added
+- code for class Tournoi
+- delete le copier coller de la classe ronde qui n'etait pas bon
+
+### Updated
+- added comments in tournous  create_rounds== > prototype de la methode
+- light update of tournois  (crud functions find by , save ....)
+
+### Todo
+* MUST HAVE : 
+    - créer la classe ronde - tester et valider classe ronde 
+    - ecrire le code qui correspond à la methode create_rounds en fonction des commentaires 
+        * ecire les rondes 
+        * les créer en bdd 
+        * les save  
+        * ...
+        
+* NICE TO HAVE : 
+    - attaquer get_current_round et update_round
 
 ## 2024-04-03  Mentorship Session
 

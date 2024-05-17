@@ -1,3 +1,5 @@
+from tinydb import TinyDB
+
 class Tournoi:
     """Classe représentant un tournoi."""
 
@@ -25,9 +27,52 @@ class Tournoi:
         self.nb_tours = nb_tours
         self.num_tour_actuel = num_tour_actuel
         self.list_id_joueurs = list_id_joueurs
-        self.list_id_rounds = []
+        self.list_id_rounds = list_id_rounds
         self.description = description
         self.status = status  # Statut initial : Prêt
+
+    def save(self):
+        """Sauvegarde le tournois dans la base de données."""
+
+        db = TinyDB("data_tournois.json")
+        db.insert(self.__dict__)
+        db.close()
+
+    def update(self, **kwargs):
+        """Met à jour les informations du tournois."""
+
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+        # manque qqch ici
+
+    @classmethod
+    def load(cls):
+        """Charge tous les joueurs depuis la base de données."""
+
+        db = TinyDB("data_tournois.json")
+        list_tournois = db.all()
+        db.close()
+        return list_tournois
+
+    @classmethod
+    def search_by_id(cls, identifiant):
+        """Recherche un joueur par identifiant."""
+
+        all_tournois = cls.load()
+        for tournois in all_tournois:
+            if tournois["identifiant"] == identifiant:
+                return Tournoi(**tournois)
+            
+        return None
+
+    @classmethod
+    def delete_all(cls):
+        """Supprime tous les joueurs de la base de données."""
+
+        db = TinyDB("data_joueurs.json")
+        db.truncate()
+        db.close()
 
     @property
     def n_players(self):
@@ -85,6 +130,7 @@ class Tournoi:
         """Passe à la ronde suivante.s"""
 
         if self.num_tour_actuel == 0:
+            
             # il faut calculer toutes les rondes et tous les matchs avec des scoress à -1
             self.compute_rounds()
             self.num_tour_actuel += 1
@@ -96,16 +142,68 @@ class Tournoi:
 
         self.num_tour_actuel += 1
 
-    def compute_rounds(self):
-        # on crée les rondes et les matchs
+    def create_rounds(self):
+        """Crée les rondes et les matchs du tournoi."""
+
+        # ici on crée les rondes et les matchs / supposons qu'on a 4 jours A, B , C et D
+            # ronde 1 : # [A, B], [C, D] 2 matchs 
+            # ronde 2 :   # [A, C], [B, D] 2 matchs 
+            # ronde 3 # [A, D], [B, C] 2 matchs 
+            # fin du tournoi ! 
+
+        # MAIS il  faut stocker les results dans les matchs de chaque ronde
+
+        # donc on aura : 
+            # ronde  1 : 
+            # [A, B], # match 1  # [C, D] # match 2
+
+        # avec en réel : 
+            # [(A, -1), (B, -1)], # match 1 
+            # [(C, -1), (D, -1)] # match 2
+            # pour stocker pour chaque match le id _player et le score
+            # à la place de A, B .... on aura les id des joueurs
+            # on met -1 comme valeur par default pur bien comprendre que celan n'a pas été joué
+            # au fur et à mesure des matchs/ rondes on mettra a jour avec les bons socres
+        
+        # pour chaque ronde , on créé et save la ronde dans la base de donnée : 
+            # les rondes on 2 attibuts
+            #     * id_ronde et 
+            #     * macht_list 
+
+            # les rondes ont plusieurs methodes comme : 
+            #     * __init__
+            #     * from_dict
+            #     * to_dict
+            #     * save
+            #     * update
+            #     * load (load all )
+            #     * find_by_id 
 
         return -1
 
     def get_current_round(self):
         # on retourne la ronde actuelle
         # aller chercher dans la liste des rondes
+
         return -1
 
     def update_round(self, match_list):
         # on met à jour la ronde avec toute les informations des matchs
+
+        
+
+        return -1
+    
+    def compute_scores(self):
+        # on calcule les scores de chaque joueur
+
+        # placeholder
+
+        return -1
+    
+    def compute_classement(self):
+        # on calcule le classement des joueurs
+
+        # placeholder
+
         return -1
