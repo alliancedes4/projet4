@@ -152,7 +152,14 @@ class Tournoi:
             [(joueurs[0], joueurs[2]), (joueurs[1], joueurs[3])],  # Ronde 2
             [(joueurs[0], joueurs[3]), (joueurs[1], joueurs[2])]   # Ronde 3
         ]
-
+        for round_index, round_matches in enumerate(rounds):
+            match_list = []
+            for match in round_matches:
+                match_list.append([(match[0], -1), (match[1], -1)])
+            round_instance = Ronde(f"Ronde {round_index + 1}", match_list)
+            round_instance.save()
+            self.list_id_rounds.append(round_instance.id_ronde)
+        self.save()
 
 
 
