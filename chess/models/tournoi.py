@@ -150,7 +150,13 @@ class Tournoi:
             # ronde 2 :   # [A, C], [B, D] 2 matchs 
             # ronde 3 # [A, D], [B, C] 2 matchs 
             # fin du tournoi ! 
-
+        """Crée les rondes et les matchs du tournoi."""
+        joueurs = self.list_id_joueurs
+        rounds = [
+            [(joueurs[0], joueurs[1]), (joueurs[2], joueurs[3])],  # Ronde 1
+            [(joueurs[0], joueurs[2]), (joueurs[1], joueurs[3])],  # Ronde 2
+            [(joueurs[0], joueurs[3]), (joueurs[1], joueurs[2])]   # Ronde 3
+        ]
         # MAIS il  faut stocker les results dans les matchs de chaque ronde
 
         # donc on aura : 
