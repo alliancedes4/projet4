@@ -1,5 +1,5 @@
 from tinydb import TinyDB
-
+from ronde import Ronde
 class Tournoi:
     """Classe représentant un tournoi."""
 
@@ -152,19 +152,23 @@ class Tournoi:
             [(joueurs[0], joueurs[2]), (joueurs[1], joueurs[3])],  # Ronde 2
             [(joueurs[0], joueurs[3]), (joueurs[1], joueurs[2])]   # Ronde 3
         ]
-        # MAIS il  faut stocker les results dans les matchs de chaque ronde
 
-        # donc on aura : 
-            # ronde  1 : 
-            # [A, B], # match 1  # [C, D] # match 2
 
-        # avec en réel : 
-            # [(A, -1), (B, -1)], # match 1 
-            # [(C, -1), (D, -1)] # match 2
-            # pour stocker pour chaque match le id _player et le score
-            # à la place de A, B .... on aura les id des joueurs
-            # on met -1 comme valeur par default pur bien comprendre que celan n'a pas été joué
-            # au fur et à mesure des matchs/ rondes on mettra a jour avec les bons socres
+
+
+        # pour chaque ronde , on crée la ronde et save la ronde dans la base de donnée : 
+            # les rondes on 2 attibuts
+            #     * id_ronde et 
+            #     * macht_list 
+
+            # les rondes ont plusieurs methodes comme : 
+            #     * __init__
+            #     * from_dict
+            #     * to_dict
+            #     * save
+            #     * update
+            #     * load (load all )
+            #     * find_by_id
         
         # pour chaque ronde , on créé et save la ronde dans la base de donnée : 
             # les rondes on 2 attibuts
