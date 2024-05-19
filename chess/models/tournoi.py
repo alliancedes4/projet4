@@ -143,15 +143,10 @@ class Tournoi:
         self.num_tour_actuel += 1
 
     def create_rounds(self):
-        """Crée les rondes et les matchs du tournoi."""
-
-        # ici on crée les rondes et les matchs / supposons qu'on a 4 jours A, B , C et D
-            # ronde 1 : # [A, B], [C, D] 2 matchs 
-            # ronde 2 :   # [A, C], [B, D] 2 matchs 
-            # ronde 3 # [A, D], [B, C] 2 matchs 
-            # fin du tournoi ! 
-        """Crée les rondes et les matchs du tournoi."""
+        """Crée les rondes et les matchs du tournoi.""" 
         joueurs = self.list_id_joueurs
+        if len(joueurs) != self.NB_PLAYERS:
+            raise ValueError("Le nombre de joueurs doit être exactement de 4.")
         rounds = [
             [(joueurs[0], joueurs[1]), (joueurs[2], joueurs[3])],  # Ronde 1
             [(joueurs[0], joueurs[2]), (joueurs[1], joueurs[3])],  # Ronde 2
