@@ -174,3 +174,4 @@ tmp/
 
 # DO NOT TRACK ALL DATA 
 *.json
+data/
