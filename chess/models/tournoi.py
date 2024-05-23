@@ -1,5 +1,9 @@
 from tinydb import TinyDB
-from ronde import Ronde
+from chess.models.ronde import Ronde
+
+from tinydb import Query
+
+
 class Tournoi:
     """Classe représentant un tournoi."""
 
@@ -39,12 +43,15 @@ class Tournoi:
         db.close()
 
     def update(self, **kwargs):
-        """Met à jour les informations du tournois."""
+        """Met à jour les informations du joueur."""
 
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-        # manque qqch ici
+        db = TinyDB("data_tournois.json")
+        q = Query()
+        db.update(self.__dict__, q.nom == self.nom)
+        db.close()
 
     @classmethod
     def load(cls):
@@ -63,7 +70,7 @@ class Tournoi:
         for tournois in all_tournois:
             if tournois["identifiant"] == identifiant:
                 return Tournoi(**tournois)
-            
+
         return None
 
     @classmethod
@@ -93,6 +100,7 @@ class Tournoi:
             )
 
         self.list_id_joueurs.append(id_joueur)
+        self.update()
 
     def changer_status(self, new_status):
         """Change le statut du tournoi."""
@@ -126,11 +134,13 @@ class Tournoi:
         if new_status == "Live":
             self.next_round()
 
+        self.update()
+
     def next_round(self):
         """Passe à la ronde suivante.s"""
 
         if self.num_tour_actuel == 0:
-            
+
             # il faut calculer toutes les rondes et tous les matchs avec des scoress à -1
             self.compute_rounds()
             self.num_tour_actuel += 1
@@ -142,54 +152,37 @@ class Tournoi:
 
         self.num_tour_actuel += 1
 
+        self.update()
+
     def create_rounds(self):
-        """Crée les rondes et les matchs du tournoi.""" 
+        """Crée les rondes et les matchs du tournoi."""
+
         joueurs = self.list_id_joueurs
+
         if len(joueurs) != self.NB_PLAYERS:
             raise ValueError("Le nombre de joueurs doit être exactement de 4.")
+
         rounds = [
-            [(joueurs[0], joueurs[1]), (joueurs[2], joueurs[3])],  # Ronde 1
-            [(joueurs[0], joueurs[2]), (joueurs[1], joueurs[3])],  # Ronde 2
-            [(joueurs[0], joueurs[3]), (joueurs[1], joueurs[2])]   # Ronde 3
+            [  # - 1 er joueur ---- 2 eme joueur ==> (du match) ==> Stockek son  ID + son score du match
+                ((joueurs[0], -1), (joueurs[1], -1)),  # Match 1 ronde 1
+                ((joueurs[2], -1), (joueurs[3], -1)),  # match 2 ronde 2
+            ],  # Ronde 1
+            [
+                ((joueurs[0], -1), (joueurs[2], -1)),
+                ((joueurs[1], -1), (joueurs[3], -1)),
+            ],  # Ronde 2
+            [
+                ((joueurs[0], -1), (joueurs[3], -1)),
+                ((joueurs[1], -1), (joueurs[2], -1)),
+            ],  # Ronde 3
         ]
+
         for round_index, round_matches in enumerate(rounds):
-            match_list = []
-            for match in round_matches:
-                match_list.append([(match[0], -1), (match[1], -1)])
-            round_instance = Ronde(f"Ronde {round_index + 1}", match_list)
+
+            round_instance = Ronde(f"{self.nom}--{round_index}", round_matches)
             round_instance.save()
             self.list_id_rounds.append(round_instance.id_ronde)
-        self.save()
-
-
-
-        # pour chaque ronde , on crée la ronde et save la ronde dans la base de donnée : 
-            # les rondes on 2 attibuts
-            #     * id_ronde et 
-            #     * macht_list 
-
-            # les rondes ont plusieurs methodes comme : 
-            #     * __init__
-            #     * from_dict
-            #     * to_dict
-            #     * save
-            #     * update
-            #     * load (load all )
-            #     * find_by_id
-        
-        # pour chaque ronde , on créé et save la ronde dans la base de donnée : 
-            # les rondes on 2 attibuts
-            #     * id_ronde et 
-            #     * macht_list 
-
-            # les rondes ont plusieurs methodes comme : 
-            #     * __init__
-            #     * from_dict
-            #     * to_dict
-            #     * save
-            #     * update
-            #     * load (load all )
-            #     * find_by_id 
+        self.update()
 
         return -1
 
@@ -202,17 +195,15 @@ class Tournoi:
     def update_round(self, match_list):
         # on met à jour la ronde avec toute les informations des matchs
 
-        
-
         return -1
-    
+
     def compute_scores(self):
         # on calcule les scores de chaque joueur
 
         # placeholder
 
         return -1
-    
+
     def compute_classement(self):
         # on calcule le classement des joueurs
 
