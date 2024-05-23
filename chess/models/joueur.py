@@ -2,6 +2,9 @@
 
 from tinydb import TinyDB
 
+from tinydb import Query
+
+
 class Joueur:
     """Classe représentant un joueur."""
 
@@ -21,6 +24,13 @@ class Joueur:
         """Met à jour les informations du joueur."""
         for key, value in kwargs.items():
             setattr(self, key, value)
+
+        db = TinyDB("data_joueurs.json")
+        q = Query()
+        db.update(self.__dict__, q.identifiant == self.identifiant)
+        db.close()
+
+        # manque qqch ici : le save des valuers dns la db
 
     @classmethod
     def load(cls):
