@@ -3,6 +3,33 @@
 Files in this directory are used to track the changes made to the project
 at each mentorship session.
 
+## 2024-05-23 Mentorship Session
+
+### Feedback 
+- Some good imporvement on the Tournoi class
+- good creation of the Ronde Class
+
+
+### Updated 
+- fix update for player and tournois class
+- update the ronde class
+- fix match list init pattern qith socres 
+- write and run some tests
+
+
+### Todo 
+
+* Must have
+    - Manually (or test) - in a terminal, try to create add cplayers, change status create round (les methodes already written)  etc etc for the tournois class
+    - get_current_round
+    - update_round
+    - compute_scores (50% nice to have)
+    - compute_classement (50% nice to have)
+
+* Nice to have 
+    - adding some tests
+    - spend time be sure taht all ronde player class definitly work as expected 
+
 ## 2024-05-17 Mentorship Session
 
 ### Added
